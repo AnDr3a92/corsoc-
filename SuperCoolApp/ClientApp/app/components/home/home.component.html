@@ -1,0 +1,77 @@
+<h1>Careers List <button (click)="addNewCareer()"> + </button></h1>
+<p *ngIf="!careers"><em>Loading...</em></p>
+<div class="career-home">
+    <div  *ngIf="careers" class="career">
+        <div class="careers-element">
+            <span class="number">Id</span> <span class="name">Nome della carriera</span><span class="number">Crediti</span>
+        </div> 
+        <div   *ngFor="let car of careers"  >
+            
+            <div [class.selected]="car === selectedCareer"
+                 (click)="onSelect(car)"
+                 [hidden]="car.deleted">
+                <div class="careers-element">
+                    <span class="badge number" style=" float: left;">{{car.id || '-' }}</span> <span class="name">{{car.name}}</span><span class="number"> {{car.credit}}</span><span class="badge button" style="float: right;" (click)="delete(car)">delete</span>
+                    <span class="badge button" style="float: right;" (click)="showCourses(car)">showCourse</span>
+                </div> 
+            </div>  
+            <div class="courses"  *ngIf="selectedCareer==car " [hidden]="selectedCareer.showCourses" style="width: 90%;" >
+                <table class="table-striped table-condensed"  >
+                    <thead>
+                        <tr>
+                            <th style="width: 10%;" >Name</th>
+                            <th style="width: 35%;" >Description</th>
+                            <th style="width: 10%;">Semester</th>
+                            <th style="width: 10%;">hours</th>
+                            <th style="width: 10%;" >credit</th>
+                            <th style="width: 10%;" ></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        
+                        <tr >
+                         
+                            <td style="width: 10%;" ><input [(ngModel)]="course.name" placeholder="name" /></td>
+                            <td style="width: 35%;" ><input [(ngModel)]="course.description" placeholder="Description" /></td>
+                            <td style="width: 10%;" ><input [(ngModel)]="course.semester" placeholder="Semester"  type="number"/></td>
+                            <td style="width: 10%;" ><input [(ngModel)]="course.hours" placeholder="hours"  type="number" /></td>
+                            <td style="width: 10%;" ><input [(ngModel)]="course.credit" placeholder="credit"  type="number"/>{{course.credit}}</td>
+                            <td style="width: 10%;" ><button type="button" (click)="addNewCourse(selectedCareer,course)">Add Course </button></td>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr *ngFor="let cours of selectedCareer.courses">
+                            <td style="width: 10%;">{{cours.name}}</td>
+                            <td style="width: 35%;" >{{cours.description}}</td>
+                            <td style="width: 10%;">{{cours.semester}}</td>
+                            <td style="width: 10%;">{{cours.hours}}</td>
+                            <td style="width: 10%;">{{cours.credit}}</td>
+                            <td style="width: 10%;" ><button type="button" (click)="deleteCourse(selectedCareer,cours)">Delete Course </button></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+      </div>
+    </div>
+
+        
+
+    <div *ngIf="newCareer.hasChanges" class="row">
+        <h2 >New Career</h2>
+        <div >
+            <label>Name: </label>
+            <input [(ngModel)]="newCareer.name" placeholder="name"  />
+        </div>
+        <div>
+            <label>Credit: </label>
+            <input [(ngModel)]="newCareer.credit" placeholder="credit"    type="number"/>
+        </div>
+        <button type="button" (click)="saveChanges()">Save</button>
+    </div>
+</div>
+
+    
+
+
+

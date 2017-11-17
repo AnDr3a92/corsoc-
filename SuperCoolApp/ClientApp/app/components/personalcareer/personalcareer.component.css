@@ -1,0 +1,26 @@
+﻿.search-result li {
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    width:auto;
+    height:20px;
+    background-color: white;
+    cursor: pointer;
+    list-style-type: none;
+}
+ 
+button {
+    font-family: Arial;
+    font-size: 16px;
+    margin: 2px;
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    vertical-align: middle;
+    text-align: center;
+}
+a {
+    text-decoration: none;
+}

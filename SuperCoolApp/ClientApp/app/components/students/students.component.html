@@ -1,0 +1,31 @@
+<h1>Students List <button (click)="addNewStudent()"> + </button></h1>
+
+<p *ngIf="!students"><em>Loading...</em></p>
+
+<div class="student-home">
+    <div class="students-list" *ngIf="students">
+        <div *ngFor="let stud of students"
+             [class.selected]="stud === selectedStudent"
+             (click)="onSelect(stud)"
+             [hidden]="stud.deleted">
+            <span class="badge" >{{stud.id || '-' }}</span > {{stud.name}} <span>{{stud.hasChanges?'*':''}}</span><span></span>{{stud.dateOfBirth}}<span class="badge" style="float: right;" (click)="delete(stud)">delete</span>
+     <span class="badge" style="float: right;"[routerLinkActive]="['link-active']"><a [routerLink]="['/students', stud.id]">Personal Carriers</a></span>
+        </div>
+        </div>
+    <div *ngIf="selectedStudent" class="student-detail">
+        <h2 *ngIf="selectedStudent.id > 0">{{selectedStudent.name}} ({{selectedStudent.id}})</h2>
+        <h2 *ngIf="!selectedStudent.id">New Student</h2>
+        <div>
+            <label>Name: </label>
+            <input [(ngModel)]="selectedStudent.name" placeholder="name" />
+        </div>
+        <div>
+            <label>Date Of Birth: </label>
+            <input [(ngModel)]="selectedStudent.dateOfBirth" placeholder="birth" />
+        </div>
+    </div>
+</div>
+
+<div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Create" (click)="saveChanges()">
+    <span>SAVE</span>
+</div>

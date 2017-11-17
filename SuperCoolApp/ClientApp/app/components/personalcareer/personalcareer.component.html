@@ -1,0 +1,75 @@
+﻿<h1>Personal Career <button (click)="saveCareer()"> Save </button></h1>
+
+<div id="search-component" *ngIf="!personalCareer">
+    <h4>Career Search</h4>
+
+    <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+    <ul class="search-result">
+
+        <li *ngFor="let career of careers$ | async">
+
+            <span (click)="AddCareer(career)" >{{career.name}}</span>
+
+        </li>
+    </ul>
+
+</div>
+    <div *ngIf="personalCareer">
+    
+        <span> Corsi della carriera: {{personalCareer.name}}</span>
+        <table class="table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th style="width: 10%;">Name</th>
+                    <th style="width: 35%;">Description</th>
+                    <th style="width: 10%;">Semester</th>
+                    <th style="width: 10%;">hours</th>
+                    <th style="width: 10%;">credit</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let cours of personalCareer.courses">
+                    <td style="width: 10%;">{{cours.name}}</td>
+                    <td style="width: 35%;">{{cours.description}}</td>
+                    <td style="width: 10%;">{{cours.semester}}</td>
+                    <td style="width: 10%;">{{cours.hours}}</td>
+                    <td style="width: 10%;">{{cours.credit}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+        <span>Corsi Disponibili <button (click)="getCourse()">ShowCourse</button> </span>
+        <div *ngIf="career">
+            <div *ngFor=" let careers of career">
+                <span> Corsi della carriera: {{careers.name}}</span>
+                <table class="table-striped table-condensed" *ngIf="careers.courses">
+                    <thead>
+                        <tr>
+                            <th style="width: 10%;">Name</th>
+                            <th style="width: 35%;">Description</th>
+                            <th style="width: 10%;">Semester</th>
+                            <th style="width: 10%;">hours</th>
+                            <th style="width: 10%;">credit</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let cours of careers.courses">
+                            <td style="width: 10%;">{{cours.name}}</td>
+                            <td style="width: 35%;">{{cours.description}}</td>
+                            <td style="width: 10%;">{{cours.semester}}</td>
+                            <td style="width: 10%;">{{cours.hours}}</td>
+                            <td style="width: 10%;">{{cours.credit}}</td>
+                            <td><button (click)="AddCourse(careers,cours)">Add</button></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
