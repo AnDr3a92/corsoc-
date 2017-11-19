@@ -11,6 +11,6 @@ namespace ServiceAPI.Dal
         public int semester { get; set; }
         public int hours { get; set; }
         public int credit { get; set; }
-       
+        public string owner { get; set; }
     }
 }

@@ -57,7 +57,11 @@ namespace ServiceAPI
         [HttpPut("students")]
         public async Task<IActionResult> CreateStudent([FromBody]Student student)
         {
-            student.Id = (int) dbcontex.Students.Count(x => true);
+            var students = await dbcontex.Students.Find(new BsonDocument()).ToListAsync();
+            if (students.Count() == 0)
+                student.Id = 1;
+            else
+                student.Id = students.Last().Id + 1;
             await dbcontex.Students.InsertOneAsync(student);
 
                 return Ok();
@@ -67,6 +71,7 @@ namespace ServiceAPI
         [HttpPost("students")]
         public async Task<IActionResult> UpdateStudent([FromBody]Student student)
         {
+        
             var query = Builders<Student>.Filter.Eq(x => x.Id, student.Id);
             await dbcontex.Students.ReplaceOneAsync(query, student);
                 return Ok();

@@ -9,3 +9,14 @@ C:\Users\roberto\Downloads\ServiceAPI\ServiceAPI\obj\Debug\netcoreapp2.0\Service
 C:\Users\roberto\Downloads\ServiceAPI\ServiceAPI\obj\Debug\netcoreapp2.0\ServiceAPI.AssemblyInfo.cs
 C:\Users\roberto\Downloads\ServiceAPI\ServiceAPI\obj\Debug\netcoreapp2.0\ServiceAPI.dll
 C:\Users\roberto\Downloads\ServiceAPI\ServiceAPI\obj\Debug\netcoreapp2.0\ServiceAPI.pdb
+C:\Users\roberto\Downloads\C#\ServiceAPI\ServiceAPI\bin\Debug\netcoreapp2.0\ServiceAPI.deps.json
+C:\Users\roberto\Downloads\C#\ServiceAPI\ServiceAPI\bin\Debug\netcoreapp2.0\ServiceAPI.runtimeconfig.json
+C:\Users\roberto\Downloads\C#\ServiceAPI\ServiceAPI\bin\Debug\netcoreapp2.0\ServiceAPI.runtimeconfig.dev.json
+C:\Users\roberto\Downloads\C#\ServiceAPI\ServiceAPI\bin\Debug\netcoreapp2.0\ServiceAPI.dll
+C:\Users\roberto\Downloads\C#\ServiceAPI\ServiceAPI\bin\Debug\netcoreapp2.0\ServiceAPI.pdb
+C:\Users\roberto\Downloads\C#\ServiceAPI\ServiceAPI\obj\Debug\netcoreapp2.0\ServiceAPI.csprojResolveAssemblyReference.cache
+C:\Users\roberto\Downloads\C#\ServiceAPI\ServiceAPI\obj\Debug\netcoreapp2.0\ServiceAPI.csproj.CoreCompileInputs.cache
+C:\Users\roberto\Downloads\C#\ServiceAPI\ServiceAPI\obj\Debug\netcoreapp2.0\ServiceAPI.AssemblyInfoInputs.cache
+C:\Users\roberto\Downloads\C#\ServiceAPI\ServiceAPI\obj\Debug\netcoreapp2.0\ServiceAPI.AssemblyInfo.cs
+C:\Users\roberto\Downloads\C#\ServiceAPI\ServiceAPI\obj\Debug\netcoreapp2.0\ServiceAPI.dll
+C:\Users\roberto\Downloads\C#\ServiceAPI\ServiceAPI\obj\Debug\netcoreapp2.0\ServiceAPI.pdb

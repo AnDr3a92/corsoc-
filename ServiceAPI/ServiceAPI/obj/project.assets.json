@@ -9230,11 +9230,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\roberto\\Downloads\\ServiceAPI\\ServiceAPI\\ServiceAPI.csproj",
+      "projectUniqueName": "C:\\Users\\roberto\\Downloads\\C#\\ServiceAPI\\ServiceAPI\\ServiceAPI.csproj",
       "projectName": "ServiceAPI",
-      "projectPath": "C:\\Users\\roberto\\Downloads\\ServiceAPI\\ServiceAPI\\ServiceAPI.csproj",
+      "projectPath": "C:\\Users\\roberto\\Downloads\\C#\\ServiceAPI\\ServiceAPI\\ServiceAPI.csproj",
       "packagesPath": "C:\\Users\\roberto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\roberto\\Downloads\\ServiceAPI\\ServiceAPI\\obj\\",
+      "outputPath": "C:\\Users\\roberto\\Downloads\\C#\\ServiceAPI\\ServiceAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
