@@ -131,13 +131,14 @@ export class HomeComponent {
         this.selectedCareer.showCourses =!this.selectedCareer.showCourses ;
     }
     async addNewCourse(car: Career, course: Course) {
-        let credit=0;
-       
+        let credit = 0;
+        course.owner = "carriera";
         for (let cour of car.courses)
             credit += cour.credit;
         if (credit + course.credit <= car.credit) {
             car.courses.push(course);
             car.hasChanges = true;
+          
         await this.putData();
         }
         this.course = new Course();
@@ -198,5 +199,5 @@ export class Course {
     semester: number;
     hours: number;
     credit: number;
-
+    owner: string;
 }

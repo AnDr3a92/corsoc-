@@ -5,11 +5,13 @@
 
 .student-home {
     display:flex;
+    width: 90%;
 }
 
 .students-list {
     flex:1;
     padding: 5px;
+    
 }
 
 .students-list div {
@@ -19,6 +21,7 @@
     background-color: #EEE;
     margin: .5em;
     border-radius: 4px;
+    width: 90%;
 }
 
 .students-list div.selected:hover {
@@ -31,7 +34,8 @@
     background-color: #DDD;
     left: .1em;
 }
-a {
+.students-list a {
+    color: white;
     text-decoration: none;
 }
 .students-list .text {
@@ -53,7 +57,9 @@ a {
 }
 
 .student-detail {
-    flex: 1;
+  
+    position:relative;
+    width: 20%;
     padding: 5px;
 }
 

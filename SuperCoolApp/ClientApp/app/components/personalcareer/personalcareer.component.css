@@ -1,9 +1,16 @@
-﻿.search-result li {
-    border-bottom: 1px solid gray;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
-    width:auto;
-    height:20px;
+﻿.search-component{
+    width: 50%;
+}
+.search-result {
+    margin: 2px;
+    position:relative;
+    left:-50px;
+}
+.search-result li {
+    border: 1px solid gray;
+    padding: 10px;
+    width: 30%;
+    height: 40px;
     background-color: white;
     cursor: pointer;
     list-style-type: none;

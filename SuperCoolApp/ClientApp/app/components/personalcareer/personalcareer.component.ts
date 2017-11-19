@@ -52,19 +52,32 @@ export class PersonalCareerComponent {
     async AddCareer(car: Career): Promise<void> {
         this.personalCareer = new Career();
         this.personalCareer = car;
-          this.save();
+          
     }
     AddCourse(career: Career, course: Course) {
-        let courses = career.courses.indexOf(course);
+     
         let crediti = 0;
-        for (course of this.personalCareer.courses)
-            crediti = course.credit;
-        if (this.personalCareer.credit >= crediti + course.credit) {
-            {
-                career.courses.splice(courses, 1);
+        course.owner = "student";
+        for (let course of this.personalCareer.courses)
+            crediti += course.credit;
+        if (this.personalCareer.credit >= crediti && !this.isPresent(course)) {
+            
+                
                 this.personalCareer.courses.push(course);
-            }
+            
         }
+    }
+
+    isPresent(cours: Course): boolean {
+        for (let course of this.personalCareer.courses) {
+            if (course.name.startsWith(cours.name))
+            return true;
+        }
+        return false;
+    }
+    DeleteCourse(course: Course) {
+        let index = this.personalCareer.courses.indexOf(course);
+        this.personalCareer.courses.splice(index, 1);
     }
     async saveCareer(): Promise<void> {
         await this.save();

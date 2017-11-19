@@ -27,6 +27,7 @@ export class StudentsComponent {
                 student.id = stud.id;
                 student.name = stud.name;
                 student.dateOfBirth = stud.dateOfBirth;
+                student.career = stud.career;
                 student.hasChanges = false;
                 studentList.push(student);
             }
@@ -62,10 +63,11 @@ export class StudentsComponent {
         for (let student of this.students) {
             if (student.hasChanges == true || student.deleted) {
 
-                let json = JSON.stringify(student);
-
+                let json = JSON.stringify(student.toJSON());
+             
                 if (!student.id) { //create
                     if (!student.deleted) {
+                      
                         let call = this.http.put(this.baseUrl + 'api/students', json, { headers: headers });
                         serverCalls.push(call);
                     }
@@ -101,8 +103,10 @@ export class StudentsComponent {
 
     addNewStudent(): void {
         this.selectedStudent = new Student();
+  
         this.selectedStudent.hasChanges = true;
         this.students.push(this.selectedStudent);
+      
     }
 
     async saveChanges(): Promise<void> {
@@ -111,9 +115,11 @@ export class StudentsComponent {
         //await this.refreshData();
     }
 
-    delete(student: Student): void {
+    async delete(student: Student): Promise<void> {
+        
         student.deleted = true;
         this.selectStudent();
+        await this.putData();
     }
 }
 
@@ -122,7 +128,7 @@ class Student {
 
     private _name: string = "";
     private _dateOfBirth: Date;
-    public career: Career;
+    public _career: Career;
     public hasChanges: boolean;
     public deleted: boolean = false;
 
@@ -138,12 +144,25 @@ class Student {
     get dateOfBirth(): Date {
         return this._dateOfBirth;
     }
+    get career(): Career {
+        return this._career;
+    }
+    set career(c: Career) {
+        this._career = c;
+    }
     set dateOfBirth(d: Date) {
         this._dateOfBirth = d;
         this.hasChanges = true;
         console.log("set dateOfBirth");
     }
-
+    public toJSON() {
+        return {
+            id: this.id,
+            name: this._name,
+            dateOfBirth: this._dateOfBirth,
+            career: this._career,
+        };
+    };
 
 
     

@@ -9,7 +9,7 @@
              (click)="onSelect(stud)"
              [hidden]="stud.deleted">
             <span class="badge" >{{stud.id || '-' }}</span > {{stud.name}} <span>{{stud.hasChanges?'*':''}}</span><span></span>{{stud.dateOfBirth}}<span class="badge" style="float: right;" (click)="delete(stud)">delete</span>
-     <span class="badge" style="float: right;"[routerLinkActive]="['link-active']"><a [routerLink]="['/students', stud.id]">Personal Carriers</a></span>
+     <span class="badge" style="float: right;"[routerLinkActive]="['link-active']"><a [routerLink] ="['/students', stud.id]" >Personal Carriers:</a></span>
         </div>
         </div>
     <div *ngIf="selectedStudent" class="student-detail">

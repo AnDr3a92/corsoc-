@@ -17,7 +17,8 @@
 </div>
     <div *ngIf="personalCareer">
     
-        <span> Corsi della carriera: {{personalCareer.name}}</span>
+        <span> Corsi della carriera: {{personalCareer.name}} </span>
+        <span>Crediti: {{personalCareer.credit}} </span>
         <table class="table-striped table-condensed">
             <thead>
                 <tr>
@@ -37,6 +38,7 @@
                     <td style="width: 10%;">{{cours.semester}}</td>
                     <td style="width: 10%;">{{cours.hours}}</td>
                     <td style="width: 10%;">{{cours.credit}}</td>
+                    <td *ngIf="cours.owner=='student'"><button (click)="DeleteCourse(cours)">delete</button></td>
                 </tr>
             </tbody>
 
@@ -53,7 +55,7 @@
                             <th style="width: 10%;">Semester</th>
                             <th style="width: 10%;">hours</th>
                             <th style="width: 10%;">credit</th>
-
+                           
                         </tr>
                     </thead>
 
